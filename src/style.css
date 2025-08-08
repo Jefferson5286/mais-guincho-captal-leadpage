@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+:root {
+    --color-red: #9b3330;
+    --color-black: #1A1A1A;
+    --color-white: #FFFFFF;
+
+    /* Cores complementares */
+    --color-gray-light: #F2F2F2;
+    --color-gray-medium: #e1e1e1;
+
+    /* Cores para hover ou variações */
+    --color-red-dark: #B00400;
+    --color-black-light: #2B2B2B;
+
+    /* Tipografia */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
+
+@theme {
+    --color-cls-red: var(--color-red);
+    --color-black: var(--color-black);
+    --color-white: var(--color-white);
+
+    --color-gray-light: var(--color-gray-light);
+    --color-gray-medium: var(--color-gray-medium);
+
+    --color-red-dark: var(--color-red-dark);
+    --color-black-light: var(--color-black-light);
+}
+
+@layer components {
+    .MgcButton {
+        @apply inline-block py-3 px-6 text-lg shadow-lg transition-all duration-300 rounded-xl cursor-pointer select-none ease-initial;
+        &:active {
+            @apply scale-110 bg-[rgba(150,150,150,0.2)];
+        }
+    }
+    .destaque {
+        @apply flex items-center space-x-4 bg-gray-medium p-4 rounded-lg shadow-sm;
+
+        img {@apply w-8 h-8;}
+        p {@apply text-lg font-semibold text-gray-700;}
+    }
+
+    .card {
+        @apply bg-white border-2 border-cls-red rounded-xl max-w-100;
+
+        & > div:first-child {
+            @apply relative h-60 overflow-hidden rounded-xl;
+
+            & > img {@apply absolute inset-0 w-full h-full object-cover;}
+            & > div {@apply absolute inset-0 bg-black opacity-60 w-full h-full}
+        }
+        & > div:last-child {
+            @apply p-3;
+
+            & > h3 {@apply text-2xl font-bold text-cls-red leading-tight;}
+            & > h4 {@apply font-bold my-3 text-[rgba(0,0,0,.75)];}
+            & > p {@apply text-[rgba(0,0,0,.65)] leading-tight mb-3;}
+        }
+    }
+
+    .embed-responsive {
+        @apply w-full h-full;
+    }
+}
+
+@layer utilities {
+    .strict-width {
+        @apply max-w-full 2xl:mx-50 xl:mx-30 lg:mx-20;
+    }
+
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-80px);
+        }
+        50% {
+            opacity: 0;
+            transform: translateX(-80px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .reveal {
+        @apply opacity-0;
+    }
+    .reveal-active {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .from-left {
+        @apply opacity-0;
+    }
+    .from-active {
+        animation: fadeInLeft 0.6s ease-out forwards;
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mais-guincho-captal-leadpage",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4",
+    "@tailwindcss/vite": "^4.1.11"
+  },
+  "dependencies": {
+    "tailwindcss": "^4.1.11"
+  }
+}
